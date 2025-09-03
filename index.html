@@ -1,27 +1,170 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Blaise's Blog</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <header>
-        <h1>👋 Welcome to Blaise's Blog</h1>
-        <nav>
-            <a href="index.html">Home</a> | 
-            <a href="blog.html">Blog</a>
-        </nav>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="script.js"></script>
+  </head>
+  <body class="bg-gray-50 text-gray-900">
+    <!-- Navigation -->
+    <nav class="bg-white border-b border-gray-100 fixed w-full z-10">
+      <div class="container mx-auto px-4 py-4">
+        <div class="flex justify-between items-center">
+          <a href="/" class="text-xl font-bold text-gray-900">Blaise's Blog</a>
+          <div class="space-x-6">
+            <a href="index.html" class="text-gray-600 hover:text-gray-900"
+              >Home</a
+            >
+            <a href="about.html" class="text-gray-600 hover:text-gray-900"
+              >About</a
+            >
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="pt-24 pb-12 px-4">
+      <div class="container mx-auto max-w-4xl text-center">
+        <h1 class="text-4xl font-bold mb-4">Latest Stories</h1>
+        <p class="text-gray-600">
+          Exploring web development, design patterns, and best practices
+        </p>
+      </div>
     </header>
 
-    <main>
-        <p>Hi, I’m <strong>Blaise</strong>. This is my personal blog where I share ideas, projects, and thoughts.</p>
-        <p>➡️ Check out my latest posts on the <a href="blog.html">Blog page</a>.</p>
+    <main class="container mx-auto px-4 py-8">
+      <!-- Grid Layout -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Blog Post 1 -->
+        <article
+          class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300"
+        >
+          <a href="post1.html" class="block">
+            <img
+              src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6"
+              alt="Web Development"
+              class="w-full h-48 object-cover hover:opacity-90 transition-opacity duration-300"
+            />
+            <div class="p-6">
+              <span class="text-sm text-gray-500"
+                >Sep 1, 2025 • Web Development</span
+              >
+              <h2 class="text-xl font-semibold mt-2 mb-3">
+                Getting Started with Web Development
+              </h2>
+              <p class="text-gray-600 text-sm line-clamp-2">
+                An introduction to modern web development practices and tools
+                for beginners starting their journey.
+              </p>
+            </div>
+          </a>
+        </article>
+
+        <!-- Blog Post 2 -->
+        <article
+          class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300"
+        >
+          <a href="post2.html" class="block">
+            <img
+              src="https://images.unsplash.com/photo-1516259762381-22954d7d3ad2"
+              alt="Design Patterns"
+              class="w-full h-48 object-cover hover:opacity-90 transition-opacity duration-300"
+            />
+            <div class="p-6">
+              <span class="text-sm text-gray-500">Sep 2, 2025 • Design</span>
+              <h2 class="text-xl font-semibold mt-2 mb-3">
+                Understanding Design Patterns
+              </h2>
+              <p class="text-gray-600 text-sm line-clamp-2">
+                Deep dive into software design patterns and their practical
+                implementations in modern applications.
+              </p>
+            </div>
+          </a>
+        </article>
+
+        <!-- Blog Post 3 -->
+        <article
+          class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300"
+        >
+          <a href="post3.html" class="block">
+            <img
+              src="https://images.unsplash.com/photo-1451187580459-43490279c0fa"
+              alt="Scalable Applications"
+              class="w-full h-48 object-cover hover:opacity-90 transition-opacity duration-300"
+            />
+            <div class="p-6">
+              <span class="text-sm text-gray-500"
+                >Sep 3, 2025 • Architecture</span
+              >
+              <h2 class="text-xl font-semibold mt-2 mb-3">
+                Building Scalable Applications
+              </h2>
+              <p class="text-gray-600 text-sm line-clamp-2">
+                Learn the principles of building applications that can scale
+                efficiently with growing demands.
+              </p>
+            </div>
+          </a>
+        </article>
+
+        <!-- Blog Post 4 -->
+        <article
+          class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300"
+        >
+          <a href="post4.html" class="block">
+            <img
+              src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb"
+              alt="Security"
+              class="w-full h-48 object-cover hover:opacity-90 transition-opacity duration-300"
+            />
+            <div class="p-6">
+              <span class="text-sm text-gray-500">Sep 4, 2025 • Security</span>
+              <h2 class="text-xl font-semibold mt-2 mb-3">
+                Deep Learning: From Theory to Practice
+              </h2>
+              <p class="text-gray-600 text-sm line-clamp-2">
+                A comprehensive guide to understanding and implementing deep
+                learning algorithms.
+              </p>
+            </div>
+          </a>
+        </article>
+
+        <!-- Blog Post 5 -->
+        <article
+          class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300"
+        >
+          <a href="post5.html" class="block">
+            <img
+              src="https://images.unsplash.com/photo-1551288049-bebda4e38f71"
+              alt="Performance"
+              class="w-full h-48 object-cover hover:opacity-90 transition-opacity duration-300"
+            />
+            <div class="p-6">
+              <span class="text-sm text-gray-500"
+                >Sep 5, 2025 • Performance</span
+              >
+              <h2 class="text-xl font-semibold mt-2 mb-3">
+                Performance Optimization Techniques
+              </h2>
+              <p class="text-gray-600 text-sm line-clamp-2">
+                Advanced techniques to optimize your web applications for better
+                performance.
+              </p>
+            </div>
+          </a>
+        </article>
+      </div>
     </main>
 
-    <footer>
-        <p>© 2025 Blaise. Powered by GitHub Pages.</p>
+    <footer class="bg-white border-t border-gray-100 py-8 mt-12">
+      <div class="container mx-auto px-4 text-center text-gray-600">
+        <p>© 2025 Blaise. All rights reserved.</p>
+      </div>
     </footer>
-</body>
+  </body>
 </html>

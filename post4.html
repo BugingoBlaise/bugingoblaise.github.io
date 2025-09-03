@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Advanced Machine Learning Concepts - Blaise's Blog</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism.min.css"
+      rel="stylesheet"
+    />
+    <!-- MathJax for mathematical equations -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script
+      id="MathJax-script"
+      async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+    ></script>
+  </head>
+  <body class="bg-gray-50 text-gray-900">
+    <!-- Navigation -->
+    <nav class="bg-white border-b border-gray-100 fixed w-full z-10">
+      <div class="container mx-auto px-4 py-4">
+        <div class="flex justify-between items-center">
+          <a href="/" class="text-xl font-bold text-gray-900">Blaise's Blog</a>
+          <div class="space-x-6">
+            <a href="index.html" class="text-gray-600 hover:text-gray-900"
+              >Home</a
+            >
+            <a href="about.html" class="text-gray-600 hover:text-gray-900"
+              >About</a
+            >
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <main class="pt-24 pb-12">
+      <article class="container mx-auto px-4 max-w-3xl">
+        <!-- Hero Section -->
+        <header class="mb-8">
+          <img
+            src="https://images.unsplash.com/photo-1527474305487-b87b222841cc"
+            alt="Neural Networks"
+            class="w-full h-64 object-cover rounded-xl mb-6"
+          />
+          <h1 class="text-4xl font-bold mb-4">
+            Deep Learning: From Theory to Practice
+          </h1>
+          <div class="flex items-center text-gray-600 mb-6">
+            <span>Sep 4, 2025</span>
+            <span class="mx-2">•</span>
+            <span>15 min read</span>
+            <span class="mx-2">•</span>
+            <span>Machine Learning</span>
+          </div>
+        </header>
+
+        <!-- Table of Contents -->
+        <div class="bg-gray-50 border border-gray-200 rounded-lg p-6 mb-8">
+          <h2 class="text-lg font-semibold mb-4">Table of Contents</h2>
+          <ul class="space-y-2">
+            <li>
+              <a href="#neural-networks" class="text-blue-600 hover:underline"
+                >Neural Network Architecture</a
+              >
+            </li>
+            <li>
+              <a href="#backpropagation" class="text-blue-600 hover:underline"
+                >Backpropagation Algorithm</a
+              >
+            </li>
+            <li>
+              <a href="#optimization" class="text-blue-600 hover:underline"
+                >Optimization Techniques</a
+              >
+            </li>
+            <li>
+              <a href="#implementation" class="text-blue-600 hover:underline"
+                >PyTorch Implementation</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <!-- Content -->
+        <div class="prose max-w-none">
+          <section id="neural-networks">
+            <h2>Neural Network Architecture</h2>
+            <p>
+              Let's explore the fundamental components of neural networks,
+              starting with the neuron model:
+            </p>
+
+            <!-- Mathematical Formula -->
+            <div class="my-4 p-4 bg-gray-50 rounded-lg">
+              <p>The output of a neuron is given by:</p>
+              \[y = \sigma\left(\sum_{i=1}^{n} w_i x_i + b\right)\]
+              <p>where:</p>
+              <ul>
+                <li>\(\sigma\) is the activation function</li>
+                <li>\(w_i\) are the weights</li>
+                <li>\(x_i\) are the inputs</li>
+                <li>\(b\) is the bias term</li>
+              </ul>
+            </div>
+
+            <!-- Code Example -->
+            <div class="relative">
+              <button
+                onclick="copyCode(this)"
+                class="absolute top-2 right-2 px-3 py-1 text-sm border border-gray-300 rounded bg-white hover:bg-gray-50"
+              >
+                Copy
+              </button>
+              <pre class="language-python"><code>import numpy as np
+
+class Neuron:
+    def __init__(self, weights, bias):
+        self.weights = np.array(weights)
+        self.bias = bias
+        
+    def sigmoid(self, x):
+        return 1 / (1 + np.exp(-x))
+        
+    def forward(self, inputs):
+        total = np.dot(self.weights, inputs) + self.bias
+        return self.sigmoid(total)</code></pre>
+            </div>
+          </section>
+
+          <section id="backpropagation" class="mt-8">
+            <h2>Backpropagation Algorithm</h2>
+
+            <!-- Mathematical Formula -->
+            <div class="my-4 p-4 bg-gray-50 rounded-lg">
+              <p>The gradient descent update rule:</p>
+              \[w_{ij}^{(l)} = w_{ij}^{(l)} - \alpha \frac{\partial E}{\partial
+              w_{ij}^{(l)}}\] \[\frac{\partial E}{\partial w_{ij}^{(l)}} =
+              \delta_j^{(l)} a_i^{(l-1)}\]
+            </div>
+
+            <!-- Warning Box -->
+            <div class="bg-yellow-50 border-l-4 border-yellow-500 p-4 my-4">
+              <p class="text-yellow-700">
+                ⚠️ <strong>Note:</strong> Vanishing gradients can occur with
+                deep networks using sigmoid activation.
+              </p>
+            </div>
+          </section>
+
+          <section id="optimization" class="mt-8">
+            <h2>Optimization Techniques</h2>
+
+            <!-- Grid of Optimization Methods -->
+            <div class="grid grid-cols-2 gap-4 my-6">
+              <div class="p-4 border rounded-lg">
+                <h3 class="font-bold">Adam Optimizer</h3>
+                \[m_t = \beta_1 m_{t-1} + (1-\beta_1)g_t\] \[v_t = \beta_2
+                v_{t-1} + (1-\beta_2)g_t^2\]
+              </div>
+              <div class="p-4 border rounded-lg">
+                <h3 class="font-bold">RMSprop</h3>
+                \[v_t = \gamma v_{t-1} + (1-\gamma)g_t^2\] \[\theta_t =
+                \theta_{t-1} - \frac{\eta}{\sqrt{v_t + \epsilon}}g_t\]
+              </div>
+            </div>
+          </section>
+
+          <section id="implementation" class="mt-8">
+            <h2>PyTorch Implementation</h2>
+
+            <div class="relative">
+              <button
+                onclick="copyCode(this)"
+                class="absolute top-2 right-2 px-3 py-1 text-sm border border-gray-300 rounded bg-white hover:bg-gray-50"
+              >
+                Copy
+              </button>
+              <pre class="language-python"><code>import torch
+import torch.nn as nn
+
+class NeuralNet(nn.Module):
+    def __init__(self, input_size, hidden_size, num_classes):
+        super(NeuralNet, self).__init__()
+        self.fc1 = nn.Linear(input_size, hidden_size)
+        self.relu = nn.ReLU()
+        self.fc2 = nn.Linear(hidden_size, num_classes)
+    
+    def forward(self, x):
+        out = self.fc1(x)
+        out = self.relu(out)
+        out = self.fc2(out)
+        return out</code></pre>
+            </div>
+          </section>
+
+          <!-- Author Bio -->
+          <div class="border-t border-gray-200 mt-12 pt-8">
+            <div class="flex items-center">
+              <img
+                src="https://images.unsplash.com/photo-1519345182560-3f2917c472ef"
+                alt="Author"
+                class="w-12 h-12 rounded-full mr-4"
+              />
+              <div>
+                <h3 class="font-semibold">Written by Blaise</h3>
+                <p class="text-gray-600">ML Engineer & Technical Writer</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+    </main>
+
+    <footer class="bg-white border-t border-gray-100 py-8 mt-12">
+      <div class="container mx-auto px-4 text-center text-gray-600">
+        <p>© 2025 Blaise. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script>
+      function copyCode(button) {
+        const pre = button.nextElementSibling;
+        navigator.clipboard.writeText(pre.textContent).then(() => {
+          button.textContent = "Copied!";
+          setTimeout(() => {
+            button.textContent = "Copy";
+          }, 2000);
+        });
+      }
+    </script>
+  </body>
+</html>

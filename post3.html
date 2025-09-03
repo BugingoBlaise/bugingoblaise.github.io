@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Building Scalable Applications - Blaise's Blog</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Syntax highlighting -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-gray-50 text-gray-900">
+    <!-- Navigation -->
+    <nav class="bg-white border-b border-gray-100 fixed w-full z-10">
+      <div class="container mx-auto px-4 py-4">
+        <div class="flex justify-between items-center">
+          <a href="/" class="text-xl font-bold text-gray-900">Blaise's Blog</a>
+          <div class="space-x-6">
+            <a href="index.html" class="text-gray-600 hover:text-gray-900"
+              >Home</a
+            >
+            <a href="about.html" class="text-gray-600 hover:text-gray-900"
+              >About</a
+            >
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <main class="pt-24 pb-12">
+      <article class="container mx-auto px-4 max-w-3xl">
+        <!-- Hero Section -->
+        <header class="mb-8">
+          <img
+            src="https://images.unsplash.com/photo-1451187580459-43490279c0fa"
+            alt="Scalable Applications Banner"
+            class="w-full h-64 object-cover rounded-xl mb-6"
+          />
+          <h1 class="text-4xl font-bold mb-4">
+            Building Scalable Applications
+          </h1>
+          <div class="flex items-center text-gray-600 mb-6">
+            <span>Sep 3, 2025</span>
+            <span class="mx-2">•</span>
+            <span>10 min read</span>
+            <span class="mx-2">•</span>
+            <span>Architecture</span>
+          </div>
+          <div class="prose max-w-none">
+            <p class="lead text-xl text-gray-600">
+              Learn the essential principles and practices for building
+              applications that can handle growth and scale effectively.
+            </p>
+          </div>
+        </header>
+
+        <!-- Table of Contents -->
+        <div class="bg-gray-50 border border-gray-200 rounded-lg p-6 mb-8">
+          <h2 class="text-lg font-semibold mb-4">Table of Contents</h2>
+          <ul class="space-y-2">
+            <li>
+              <a href="#introduction" class="text-blue-600 hover:underline"
+                >Introduction</a
+              >
+            </li>
+            <li>
+              <a href="#principles" class="text-blue-600 hover:underline"
+                >Key Principles</a
+              >
+            </li>
+            <li>
+              <a href="#implementation" class="text-blue-600 hover:underline"
+                >Implementation</a
+              >
+            </li>
+            <li>
+              <a href="#examples" class="text-blue-600 hover:underline"
+                >Examples</a
+              >
+            </li>
+            <li>
+              <a href="#conclusion" class="text-blue-600 hover:underline"
+                >Conclusion</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <!-- Content -->
+        <div class="prose max-w-none">
+          <section id="introduction">
+            <h2>Introduction</h2>
+            <p>
+              Building scalable applications requires careful consideration of
+              various factors...
+            </p>
+
+            <!-- Info Box -->
+            <div class="bg-blue-50 border-l-4 border-blue-500 p-4 my-4">
+              <p class="text-blue-700">
+                💡 <strong>Pro Tip:</strong> Always design your applications
+                with scalability in mind from the start.
+              </p>
+            </div>
+          </section>
+
+          <section id="principles" class="mt-8">
+            <h2>Key Principles</h2>
+
+            <!-- Image Grid -->
+            <div class="grid grid-cols-2 gap-4 my-6">
+              <div>
+                <img
+                  src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40"
+                  alt="Microservices Architecture"
+                  class="rounded-lg shadow-sm"
+                />
+                <p class="text-sm text-gray-600 mt-2">
+                  Microservices Architecture
+                </p>
+              </div>
+              <div>
+                <img
+                  src="https://images.unsplash.com/photo-1460925895917-afdab827c52f"
+                  alt="Database Scaling"
+                  class="rounded-lg shadow-sm"
+                />
+                <p class="text-sm text-gray-600 mt-2">Database Scaling</p>
+              </div>
+            </div>
+
+            <!-- Code Example -->
+            <div class="relative">
+              <button
+                onclick="copyCode(this)"
+                class="absolute top-2 right-2 px-3 py-1 text-sm border border-gray-300 rounded bg-white hover:bg-gray-50"
+              >
+                Copy
+              </button>
+              <pre
+                class="language-javascript"
+              ><code>// Example of a scalable service
+class UserService {
+    constructor() {
+        this.cache = new Cache();
+        this.db = new Database();
+    }
+
+    async getUser(id) {
+        // Try cache first
+        let user = await this.cache.get(id);
+        if (!user) {
+            // Fall back to database
+            user = await this.db.findUser(id);
+            // Update cache
+            await this.cache.set(id, user);
+        }
+        return user;
+    }
+}</code></pre>
+            </div>
+          </section>
+
+          <section id="implementation" class="mt-8">
+            <h2>Implementation</h2>
+
+            <!-- Warning Box -->
+            <div class="bg-yellow-50 border-l-4 border-yellow-500 p-4 my-4">
+              <p class="text-yellow-700">
+                ⚠️ <strong>Warning:</strong> Ensure proper error handling in
+                distributed systems.
+              </p>
+            </div>
+
+            <!-- Checklist -->
+            <ul class="space-y-2 my-4">
+              <li class="flex items-center">
+                <svg
+                  class="w-4 h-4 mr-2 text-green-500"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"
+                  ></path>
+                </svg>
+                Use load balancers
+              </li>
+              <li class="flex items-center">
+                <svg
+                  class="w-4 h-4 mr-2 text-green-500"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"
+                  ></path>
+                </svg>
+                Implement caching
+              </li>
+            </ul>
+          </section>
+
+          <!-- More sections... -->
+
+          <!-- Author Bio -->
+          <div class="border-t border-gray-200 mt-12 pt-8">
+            <div class="flex items-center">
+              <img
+                src="https://images.unsplash.com/photo-1519345182560-3f2917c472ef"
+                alt="Author"
+                class="w-12 h-12 rounded-full mr-4"
+              />
+              <div>
+                <h3 class="font-semibold">Written by Blaise</h3>
+                <p class="text-gray-600">
+                  Full Stack Developer & Technical Writer
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+    </main>
+
+    <footer class="bg-white border-t border-gray-100 py-8 mt-12">
+      <div class="container mx-auto px-4 text-center text-gray-600">
+        <p>© 2025 Blaise. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <!-- Syntax highlighting -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/autoloader/prism-autoloader.min.js"></script>
+
+    <!-- Copy code functionality -->
+    <script>
+      function copyCode(button) {
+        const pre = button.nextElementSibling;
+        navigator.clipboard.writeText(pre.textContent).then(() => {
+          button.textContent = "Copied!";
+          setTimeout(() => {
+            button.textContent = "Copy";
+          }, 2000);
+        });
+      }
+    </script>
+  </body>
+</html>
