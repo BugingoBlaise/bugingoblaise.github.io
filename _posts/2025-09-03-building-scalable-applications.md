@@ -7,8 +7,8 @@ categories: [Machine Learning]
 
 ## Navigation
 
-- [Home](index.html)
-- [About](about.html)
+- [Home](../index.md)
+- [About](../about.md)
 
 ---
 
