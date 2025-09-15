@@ -1,6 +1,6 @@
 ---
-layout: default
-title: About Me - Blaise's Blog
+layout: page
+title: About Me
 ---
 
 <div class="profile-section">
@@ -8,6 +8,7 @@ title: About Me - Blaise's Blog
 ![Profile picture](https://images.unsplash.com/photo-1519345182560-3f2917c472ef)
 
 # Blaise
+
 ## Full Stack Developer & Technical Writer
 
 <div class="social-links">
@@ -38,4 +39,5 @@ I'm a passionate full-stack developer with expertise in modern web technologies.
 Feel free to reach out to me at [your.email@example.com](mailto:your.email@example.com)
 
 ---
+
 © 2025 Blaise. All rights reserved.

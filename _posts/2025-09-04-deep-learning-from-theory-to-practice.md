@@ -1,6 +1,12 @@
-# Blaise's Blog
+---
+layout: post
+title: "Deep Learning: From Theory to Practice"
+date: 2025-09-04
+categories: [Machine Learning]
+---
 
 ## Navigation
+
 - [Home](index.html)
 - [About](about.html)
 
@@ -15,6 +21,7 @@
 ---
 
 ## Table of Contents
+
 - [Neural Network Architecture](#neural-networks)
 - [Backpropagation Algorithm](#backpropagation)
 - [Optimization Techniques](#optimization)
@@ -33,6 +40,7 @@ The output of a neuron is given by:
 $$y = \sigma\left(\sum_{i=1}^{n} w_i x_i + b\right)$$
 
 where:
+
 - σ is the activation function
 - w_i are the weights
 - x_i are the inputs
@@ -47,10 +55,10 @@ class Neuron:
     def __init__(self, weights, bias):
         self.weights = np.array(weights)
         self.bias = bias
-        
+
     def sigmoid(self, x):
         return 1 / (1 + np.exp(-x))
-        
+
     def forward(self, inputs):
         total = np.dot(self.weights, inputs) + self.bias
         return self.sigmoid(total)
@@ -84,7 +92,7 @@ Take a small step from the current position w^n to a new position w^(n+1):
 
 $$L(w^{n+1}) \approx L(w^n) + \nabla L(w^n) \cdot (w^{n+1} - w^n)$$
 
-*To decrease L, we want (w^(n+1) - w^n) to be opposite to ∇L(w^n).*
+_To decrease L, we want (w^(n+1) - w^n) to be opposite to ∇L(w^n)._
 
 ### Implementation
 
@@ -92,7 +100,7 @@ $$L(w^{n+1}) \approx L(w^n) + \nabla L(w^n) \cdot (w^{n+1} - w^n)$$
 def gradient_descent_step(w_current, gradient, learning_rate):
     """
     Implement gradient descent using Taylor expansion principle
-    
+
     Args:
         w_current: Current weights
         gradient: Computed gradient (∇L)
@@ -110,9 +118,9 @@ def gradient_descent_step(w_current, gradient, learning_rate):
 
 ### Optimization Methods Comparison
 
-| Adam Optimizer | RMSprop |
-|---|---|
-| $m_t = \beta_1 m_{t-1} + (1-\beta_1)g_t$ | $v_t = \gamma v_{t-1} + (1-\gamma)g_t^2$ |
+| Adam Optimizer                             | RMSprop                                                           |
+| ------------------------------------------ | ----------------------------------------------------------------- |
+| $m_t = \beta_1 m_{t-1} + (1-\beta_1)g_t$   | $v_t = \gamma v_{t-1} + (1-\gamma)g_t^2$                          |
 | $v_t = \beta_2 v_{t-1} + (1-\beta_2)g_t^2$ | $\theta_t = \theta_{t-1} - \frac{\eta}{\sqrt{v_t + \epsilon}}g_t$ |
 
 ---
@@ -129,7 +137,7 @@ class NeuralNet(nn.Module):
         self.fc1 = nn.Linear(input_size, hidden_size)
         self.relu = nn.ReLU()
         self.fc2 = nn.Linear(hidden_size, num_classes)
-    
+
     def forward(self, x):
         out = self.fc1(x)
         out = self.relu(out)
@@ -144,8 +152,8 @@ class NeuralNet(nn.Module):
 ![Author](https://images.unsplash.com/photo-1519345182560-3f2917c472ef)
 
 **Written by Blaise**  
-*ML Engineer & Technical Writer*
+_ML Engineer & Technical Writer_
 
 ---
 
-*© 2025 Blaise. All rights reserved.*
+_© 2025 Blaise. All rights reserved._

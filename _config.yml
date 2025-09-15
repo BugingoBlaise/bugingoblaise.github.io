@@ -1,3 +1,31 @@
 # _config.yml
-title: "My Technology Blog"
-theme: jekyll-theme-minimal
+
+# Site Settings
+title: "Blaise's Blog"
+description: "Exploring web development, design patterns, and best practices."
+baseurl: "" # The subpath of your site, e.g. "/blog". Leave empty for base URL.
+url: "https://bugingoblaise.github.io" # Your base hostname & protocol
+
+# Build Settings
+markdown: kramdown
+theme: minima
+plugins:
+  - jekyll-feed
+
+# Minima Theme Customization (Optional but recommended)
+minima:
+  social_links:
+    twitter: "https://x.com/BugingoMugisha"
+    github: "https://github.com/BugingoBlaise"
+    linkedin: "https://www.linkedin.com/in/blaisemugisha/"
+
+# Exclude files from processing
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+
+# Add to your _config.yml
+header_pages:
+  - index.md
+  - about.md
