@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blaise's Blog</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      // Configure Tailwind with custom animations
+      tailwind.config = {
+        theme: {
+          extend: {
+            animation: {
+              "fade-in": "fadeIn 0.3s ease-in-out",
+            },
+          },
+        },
+      };
+    </script>
+    <script src="script.js"></script>
+    <style>
+      .category-btn.active {
+        background-color: rgb(243 244 246);
+        font-weight: 600;
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+      .animate-fade-in {
+        animation: fadeIn 0.3s ease-in-out;
+      }
+
+      /* Add these new styles */
+      .post-card:hover {
+        transform: translateY(-4px);
+      }
+
+      .category-tag {
+        @apply inline-block px-3 py-1 text-xs font-medium rounded-full;
+      }
+
+      .category-ai {
+        @apply bg-blue-100 text-blue-800;
+      }
+      .category-ddd {
+        @apply bg-green-100 text-green-800;
+      }
+      .category-philosophy {
+        @apply bg-purple-100 text-purple-800;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50 text-gray-900">
+    <!-- Hero Section -->
+    <section
+      class="bg-gradient-to-r from-black to-gray-900 text-white py-5 mb-12"
+    >
+      <div class="container mx-auto px-4 pt-6 text-center">
+        <h1 class="text-3xl font-bold mb-4">Welcome to Blaise's Blog</h1>
+        <p class="text-xl text-gray-300 max-w-2xl text-center mx-auto">
+          Exploring the intersections of Artificial Intelligence, Domain-Driven
+          Design, and Philosophy through thoughtful articles and practical
+          insights.
+        </p>
+      </div>
+    </section>
+
+    <!-- Main Content with Sidebar -->
+    <div class="container mx-auto px-4 flex flex-col md:flex-row gap-8">
+      <!-- Sidebar -->
+      <aside class="md:w-64 flex-shrink-0">
+        <div class="bg-white p-6 rounded-xl shadow-sm sticky top-24">
+          <h2 class="text-lg font-semibold mb-4">Categories</h2>
+          <ul class="space-y-2">
+            <li>
+              <button
+                onclick="filterPosts('all')"
+                class="w-full text-left px-4 py-2 rounded-lg hover:bg-gray-100 transition-colors category-btn active"
+                data-category="all"
+              >
+                All Posts
+              </button>
+            </li>
+            <li>
+              <button
+                onclick="filterPosts('ai')"
+                class="w-full text-left px-4 py-2 rounded-lg hover:bg-gray-100 transition-colors category-btn"
+                data-category="ai"
+              >
+                Artificial Intelligence
+              </button>
+            </li>
+            <li>
+              <button
+                onclick="filterPosts('ddd')"
+                class="w-full text-left px-4 py-2 rounded-lg hover:bg-gray-100 transition-colors category-btn"
+                data-category="ddd"
+              >
+                Domain Driven Design
+              </button>
+            </li>
+            <li>
+              <button
+                onclick="filterPosts('philosophy')"
+                class="w-full text-left px-4 py-2 rounded-lg hover:bg-gray-100 transition-colors category-btn"
+                data-category="philosophy"
+              >
+                Philosophy
+              </button>
+            </li>
+          </ul>
+
+          <!-- Add Search Box -->
+          <div class="mt-6">
+            <div class="relative">
+              <input
+                type="search"
+                placeholder="Search posts..."
+                class="w-full px-4 py-2 pl-10 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                aria-label="Search posts"
+              />
+              <svg
+                class="absolute left-3 top-2.5 h-5 w-5 text-gray-400"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                />
+              </svg>
+            </div>
+          </div>
+
+          <!-- Featured Tags -->
+          <div class="mt-6">
+            <h3 class="text-sm font-semibold text-gray-600 mb-3">
+              POPULAR TAGS
+            </h3>
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="px-2 py-1 bg-gray-100 rounded-full text-xs text-gray-700"
+                >#machinelearning</span
+              >
+              <span
+                class="px-2 py-1 bg-gray-100 rounded-full text-xs text-gray-700"
+                >#webdev</span
+              >
+              <span
+                class="px-2 py-1 bg-gray-100 rounded-full text-xs text-gray-700"
+                >#architecture</span
+              >
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Main Content -->
+      <div class="flex-1">
+        <div class="flex justify-between items-center mb-8">
+          <h2 class="text-2xl font-bold">Latest Stories</h2>
+          <div class="flex gap-2">
+            <button class="p-2 rounded-lg hover:bg-gray-100">
+              <svg
+                class="w-5 h-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path d="M4 6h16M4 12h16M4 18h16"></path>
+              </svg>
+            </button>
+            <button class="p-2 rounded-lg hover:bg-gray-100">
+              <svg
+                class="w-5 h-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path d="M4 6h16M4 10h16M4 14h16M4 18h16"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Grid Layout -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <article
+            data-category="ai"
+            class="post-card bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300"
+          >
+            <a href="post1.html" class="block">
+              <img
+                src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6"
+                alt="Web Development"
+                class="w-full h-48 object-cover hover:opacity-90 transition-opacity duration-300"
+              />
+              <div class="p-6">
+                <div class="flex items-center justify-between mb-3">
+                  <span class="category-tag category-ai">AI & ML</span>
+                  <span class="text-sm text-gray-500">Sep 1, 2025</span>
+                </div>
+                <h2 class="text-xl font-semibold mb-3">
+                  Getting Started with Web Development
+                </h2>
+                <p class="text-gray-600 text-sm line-clamp-2">
+                  An introduction to modern web development practices and tools
+                  for beginners starting their journey.
+                </p>
+
+                <!-- Author Info -->
+                <div class="flex items-center mt-6 pt-6 border-t">
+                  <img
+                    src="https://images.unsplash.com/photo-1519345182560-3f2917c472ef"
+                    class="w-8 h-8 rounded-full mr-3"
+                    alt="Author"
+                  />
+                  <div>
+                    <p class="text-sm font-medium">Blaise</p>
+                    <p class="text-xs text-gray-500">10 min read</p>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </article>
+
+          <article
+            data-category="ddd"
+            class="post-card bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300"
+          >
+            <a href="post2.html" class="block">
+              <img
+                src="https://images.unsplash.com/photo-1451187580459-43490279c0fa"
+                alt="Scalable Applications"
+                class="w-full h-48 object-cover hover:opacity-90 transition-opacity duration-300"
+              />
+              <div class="p-6">
+                <div class="flex items-center justify-between mb-3">
+                  <span class="category-tag category-ddd">DDD</span>
+                  <span class="text-sm text-gray-500">Sep 3, 2025</span>
+                </div>
+                <h2 class="text-xl font-semibold mb-3">
+                  Building Scalable Applications
+                </h2>
+                <p class="text-gray-600 text-sm line-clamp-2">
+                  Learn the principles of building applications that can scale
+                  efficiently with growing demands.
+                </p>
+
+                <!-- Author Info -->
+                <div class="flex items-center mt-6 pt-6 border-t">
+                  <img
+                    src="https://images.unsplash.com/photo-1519345182560-3f2917c472ef"
+                    class="w-8 h-8 rounded-full mr-3"
+                    alt="Author"
+                  />
+                  <div>
+                    <p class="text-sm font-medium">Blaise</p>
+                    <p class="text-xs text-gray-500">8 min read</p>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </article>
+
+          <article
+            data-category="ai"
+            class="post-card bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300"
+          >
+            <a href="post3.html" class="block">
+              <img
+                src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb"
+                alt="Security"
+                class="w-full h-48 object-cover hover:opacity-90 transition-opacity duration-300"
+              />
+              <div class="p-6">
+                <div class="flex items-center justify-between mb-3">
+                  <span class="category-tag category-ai">AI & ML</span>
+                  <span class="text-sm text-gray-500">Sep 4, 2025</span>
+                </div>
+                <h2 class="text-xl font-semibold mb-3">
+                  Deep Learning: From Theory to Practice
+                </h2>
+                <p class="text-gray-600 text-sm line-clamp-2">
+                  A comprehensive guide to understanding and implementing deep
+                  learning algorithms.
+                </p>
+
+                <!-- Author Info -->
+                <div class="flex items-center mt-6 pt-6 border-t">
+                  <img
+                    src="https://images.unsplash.com/photo-1519345182560-3f2917c472ef"
+                    class="w-8 h-8 rounded-full mr-3"
+                    alt="Author"
+                  />
+                  <div>
+                    <p class="text-sm font-medium">Blaise</p>
+                    <p class="text-xs text-gray-500">12 min read</p>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <footer class="bg-white border-t border-gray-100 py-8 mt-12">
+      <div class="container mx-auto px-4 text-center text-gray-600">
+        <p>© 2025 Blaise. All rights reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>
