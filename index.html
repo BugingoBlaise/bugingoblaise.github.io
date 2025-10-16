@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Blaise's Blog</title>
+    <title>Mukwende's Blog</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       // Configure Tailwind with custom animations
@@ -57,18 +57,32 @@
   </head>
   <body class="bg-gray-50 text-gray-900">
     <!-- Hero Section -->
-    <section
+    <!-- <section
       class="bg-gradient-to-r from-black to-gray-900 text-white py-5 mb-12"
     >
       <div class="container mx-auto px-4 pt-6 text-center">
-        <h1 class="text-3xl font-bold mb-4">Welcome to Blaise's Blog</h1>
+        <h1 class="text-3xl font-bold mb-4">Welcome to Mukwende's Blog</h1>
         <p class="text-xl text-gray-300 max-w-2xl text-center mx-auto">
           Exploring the intersections of Artificial Intelligence, Domain-Driven
           Design, and Philosophy through thoughtful articles and practical
           insights.
         </p>
       </div>
-    </section>
+    </section> -->
+
+      <nav class="bg-gradient-to-r from-black to-gray-900 fixed w-full z-10">
+      <div class="container mx-auto px-4 py-4">
+        <div class="flex justify-between items-center">
+          <a href="/" class="text-xl font-bold text-white">Mukwende</a>
+          <div class="space-x-6">
+           
+            <a href="about.html" class="text-gray-300 hover:text-white">About</a>
+              >About</a
+            >
+          </div>
+        </div>
+      </div>
+    </nav>
 
     <!-- Main Content with Sidebar -->
     <div class="container mx-auto px-4 flex flex-col md:flex-row gap-8">
@@ -104,6 +118,15 @@
                 Domain Driven Design
               </button>
             </li>
+              <li>
+              <button
+                onclick="filterPosts('sa')"
+                class="w-full text-left px-4 py-2 rounded-lg hover:bg-gray-100 transition-colors category-btn"
+                data-category="sa"
+              >
+Software Architecture              </button>
+            </li>
+            
             <li>
               <button
                 onclick="filterPosts('philosophy')"
@@ -111,6 +134,15 @@
                 data-category="philosophy"
               >
                 Philosophy
+              </button>
+            </li>
+            <li>
+               <button
+                onclick="filterPosts('pfm')"
+                class="w-full text-left px-4 py-2 rounded-lg hover:bg-gray-100 transition-colors category-btn"
+                data-category="pfm"
+              >
+                Public Financial Management
               </button>
             </li>
           </ul>
@@ -224,7 +256,7 @@
                     alt="Author"
                   />
                   <div>
-                    <p class="text-sm font-medium">Blaise</p>
+                    <p class="text-sm font-medium">Mukwende</p>
                     <p class="text-xs text-gray-500">10 min read</p>
                   </div>
                 </div>
@@ -263,7 +295,7 @@
                     alt="Author"
                   />
                   <div>
-                    <p class="text-sm font-medium">Blaise</p>
+                    <p class="text-sm font-medium">Mukwende</p>
                     <p class="text-xs text-gray-500">8 min read</p>
                   </div>
                 </div>
@@ -302,7 +334,7 @@
                     alt="Author"
                   />
                   <div>
-                    <p class="text-sm font-medium">Blaise</p>
+                    <p class="text-sm font-medium">Mukwende</p>
                     <p class="text-xs text-gray-500">12 min read</p>
                   </div>
                 </div>
@@ -315,7 +347,7 @@
 
     <footer class="bg-white border-t border-gray-100 py-8 mt-12">
       <div class="container mx-auto px-4 text-center text-gray-600">
-        <p>© 2025 Blaise. All rights reserved.</p>
+        <p>© 2025 Mukwende. All rights reserved.</p>
       </div>
     </footer>
   </body>
