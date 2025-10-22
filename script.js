@@ -1,3 +1,20 @@
+// Tailwind configs
+tailwind.config = {
+  theme: {
+    extend: {
+      animation: {
+        "fade-in": "fadeIn 0.3s ease-in-out",
+      },
+      keyframes: {
+        fadeIn: {
+          "0%": { opacity: "0" },
+          "100%": { opacity: "1" },
+        },
+      },
+    },
+  },
+};
+//copy code function
 function copyCode(button) {
   const pre = button.nextElementSibling;
   navigator.clipboard.writeText(pre.textContent).then(() => {
@@ -7,7 +24,7 @@ function copyCode(button) {
     }, 2000);
   });
 }
-
+//filter posts function
 function filterPosts(category) {
   // Get all posts and category buttons
   const posts = document.querySelectorAll("article");
@@ -33,24 +50,8 @@ function filterPosts(category) {
   });
 }
 
-// Add this to your existing Tailwind config or create a new one
-tailwind.config = {
-  theme: {
-    extend: {
-      animation: {
-        "fade-in": "fadeIn 0.3s ease-in-out",
-      },
-      keyframes: {
-        fadeIn: {
-          "0%": { opacity: "0" },
-          "100%": { opacity: "1" },
-        },
-      },
-    },
-  },
-};
 
-// Add search functionality
+//Search functionality
 function initSearch() {
   const searchInput = document.querySelector('input[type="search"]');
   const posts = document.querySelectorAll(".post-card");
@@ -105,7 +106,7 @@ function debounce(func, wait) {
 function updateNoResultsMessage(searchTerm) {
   let noResultsDiv = document.getElementById("no-results");
   const posts = document.querySelectorAll('.post-card[style="display: block"]');
-  const gridContainer = document.querySelector(".grid-cols-1.grid"); // Updated selector
+  const gridContainer = document.querySelector(".grid-cols-1.grid"); 
 
   if (posts.length === 0 && searchTerm) {
     if (!noResultsDiv) {
